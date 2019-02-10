@@ -1,0 +1,157 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled2.ipynb",
+      "version": "0.3.2",
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/hub1970/kt-kim/blob/master/lab%204_2\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "metadata": {
+        "id": "OUv_a8zdj6up",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "cell_type": "code",
+      "source": [
+        "import tensorflow as tf\n",
+        "\n",
+        "x1_data=[1.,2.,3.,4.,5.]\n",
+        "x2_data=[1.,2.,3.,4.,5.]\n",
+        "x3_data=[1.,2.,3.,4.,5.]\n",
+        "y_data=[3.,6.,9.,12.,15.]\n",
+        "\n",
+        "x1=tf.placeholder(tf.float32)\n",
+        "x2=tf.placeholder(tf.float32)\n",
+        "x3=tf.placeholder(tf.float32)\n",
+        "\n",
+        "Y=tf.placeholder(tf.float32)\n",
+        "\n",
+        "\n",
+        "w1=tf.Variable(tf.random_normal([1]),name='weight1')\n",
+        "w2=tf.Variable(tf.random_normal([1]),name='weight2')\n",
+        "w3=tf.Variable(tf.random_normal([1]),name='weight3')\n",
+        "b=tf.Variable(tf.random_normal([1]),name='bias')\n",
+        "hypothesis=x1*w1+x2*w2+x3*w3+b\n",
+        "\n",
+        "cost=tf.reduce_mean(tf.square(hypothesis-Y))\n",
+        "optimizer=tf.train.GradientDescentOptimizer(learning_rate=1e-5)\n",
+        "train=optimizer.minimize(cost)\n",
+        "\n",
+        "\n",
+        "sess=tf.Session()\n",
+        "\n",
+        "sess.run(tf.global_variables_initializer())\n",
+        "for step in range(2001):\n",
+        "  cost_val,hy_val,_=sess.run([cost,hypothesis,train],\n",
+        "                    feed_dict={x1:x1_data,x2:x2_data,x3:x3_data,Y:y_data})\n",
+        "  if step%10==0:\n",
+        "    print(step,\"cost: \",cost_val,\"\\nPrediction:\\n\",hy_val)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "metadata": {
+        "id": "Ceyqr5_jo1EW",
+        "colab_type": "code",
+        "outputId": "53ac7e1a-51b4-48df-aceb-78a4ccb45289",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 35
+        }
+      },
+      "cell_type": "code",
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "UsageError: Line magic function `%dir` not found.\n"
+          ],
+          "name": "stderr"
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "id": "vqYLHFKGrg3u",
+        "colab_type": "text"
+      },
+      "cell_type": "markdown",
+      "source": [
+        ""
+      ]
+    },
+    {
+      "metadata": {
+        "id": "-mM23RkgreNE",
+        "colab_type": "text"
+      },
+      "cell_type": "markdown",
+      "source": [
+        ""
+      ]
+    },
+    {
+      "metadata": {
+        "id": "t-26e-ZDqufi",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "cell_type": "code",
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "metadata": {
+        "id": "AotzhjwhouYA",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "cell_type": "code",
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "metadata": {
+        "id": "Hv35U_w1rhvu",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "cell_type": "code",
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    }
+  ]
+}
